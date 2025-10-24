@@ -1,0 +1,15 @@
+# .gitignore for SilentCapure Vercel project
+
+# Dependencies
+node_modules/
+
+# Vercel CLI cache
+.vercel
+
+# Local env files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,26 @@
+{
+  "buildCommand": null,
+  "framework": null,
+  "public": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/ScreenRecord.ps1",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=ScreenRecord.ps1"
+        }
+      ]
+    }
+  ]
+}

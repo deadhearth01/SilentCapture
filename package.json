@@ -1,0 +1,16 @@
+{
+  "name": "silentcapure",
+  "version": "1.0.0",
+  "description": "Simple static download page for ScreenRecord.ps1",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo \"Static site - no build needed\"",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "screenrecord",
+    "powershell",
+    "download"
+  ]
+}

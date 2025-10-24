@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SilentCapure — Download Script</title>
+    <style>
+      body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: #f6f8fa; margin: 0; height: 100vh; display:flex; align-items:center; justify-content:center }
+      .card { background: #fff; padding: 28px; border-radius: 12px; box-shadow: 0 8px 30px rgba(2,6,23,0.08); max-width:720px; width:calc(100% - 40px) }
+      h1 { margin: 0 0 8px 0; font-size:20px }
+      p { margin: 8px 0 }
+      button { background:#0070f3; color:#fff; border:0; padding:12px 18px; border-radius:8px; font-size:16px; cursor:pointer }
+      a.link { color:#0070f3; text-decoration:none }
+      footer { margin-top:12px; color:#666; font-size:13px }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>SilentCapure — Download the script</h1>
+      <p>This page lets you save <strong>ScreenRecord.ps1</strong> to your machine with one click. The file is served from the same folder as this page.</p>
+
+      <p>
+        <button id="saveBtn">Save ScreenRecord.ps1</button>
+      </p>
+
+      <p id="status"></p>
+
+      <footer>
+        After deploying this folder to Vercel (see README.md), open the page and click Save. If your browser blocks an automatic download, use the direct link below.
+        <br />
+        <a class="link" href="/ScreenRecord.ps1" download>Direct download: ScreenRecord.ps1</a>
+      </footer>
+    </div>
+
+    <script>
+      // Simple client-side trigger that uses an anchor with the download attribute,
+      // ensuring the browser saves the file as "ScreenRecord.ps1" when clicked.
+      const btn = document.getElementById('saveBtn');
+      const status = document.getElementById('status');
+      btn.addEventListener('click', async () => {
+        status.textContent = 'Starting download...';
+        try {
+          // Create an anchor that points to the file in the same directory and trigger click.
+          const a = document.createElement('a');
+          a.href = './ScreenRecord.ps1';
+          a.download = 'system.ps1';
+          // Some browsers require the anchor to be in the document for click to work
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          status.textContent = 'Download started. Check your browser downloads folder.';
+        } catch (err) {
+          console.error(err);
+          status.textContent = 'Download failed in this browser. Use the direct link below.';
+        }
+      });
+    </script>
+  </body>
+</html>
